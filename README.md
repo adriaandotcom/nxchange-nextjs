@@ -20,7 +20,9 @@ Translations work within this app. It uses [isaachinman/next-i18next](https://gi
 
 As mentioned above with deployment it does not work well with this (or any) translations library because of limitations of Next.js. Also sometimes the reloader does reload without translations:
 
-<kbd><img width="820" alt="Screenshot" src="https://user-images.githubusercontent.com/1079135/81408392-729ac680-913d-11ea-9011-20c10198f2be.png"></kbd>
+<kbd><img width="410px" alt="Screenshot" src="https://user-images.githubusercontent.com/1079135/81408392-729ac680-913d-11ea-9011-20c10198f2be.png"></kbd>
+
+Maybe this is due to translations which are loading only after a full app reload?
 
 ## Next.js telemetry
 
