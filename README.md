@@ -24,6 +24,10 @@ As mentioned above with deployment it does not work well with this (or any) tran
 
 Maybe this is due to translations which are loading only after a full app reload?
 
+## SWR
+
+The name “SWR” is derived from `stale-while-revalidate`, a HTTP cache invalidation strategy popularized by RFC 5861. It's quite cool to use and have some caching in it which load the same data not twice. This means it's faster with navigation. You still need to use it with axios or fetch.
+
 ## Next.js telemetry
 
 Just run `npx next telemetry disable` if you want to disable [telemetry](https://nextjs.org/telemetry).
