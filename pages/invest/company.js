@@ -3,7 +3,9 @@ import Layout from "../../components/layout";
 import useSWR from "swr";
 import { withTranslation } from "../../initializers/i18n";
 
-function InvestCompany() {
+import { connect } from "react-redux";
+
+function InvestCompany(props) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error } = useSWR("/api/company", fetcher);
 
@@ -13,6 +15,7 @@ function InvestCompany() {
         <title>Invest company</title>
       </Head>
       <h1>{data ? `Invest in ${data.name}` : "Loading..."}</h1>
+      <p>props.foo: {props.foo}</p>
       <p>
         A full-service exchange platform for tokenized securities and digital
         assets
@@ -21,8 +24,24 @@ function InvestCompany() {
   );
 }
 
-InvestCompany.getInitialProps = async () => ({
-  namespacesRequired: [],
-});
+// InvestCompany.getInitialProps = async () => ({
+//   namespacesRequired: [],
+// });
 
-export default withTranslation("homepage")(InvestCompany);
+// import React from "react";
+
+// const Page = (props) => (
+//   <div>
+//     <div>Prop from Redux {props.foo}</div>
+//     <div>Prop from getInitialProps {props.custom}</div>
+//   </div>
+// );
+
+InvestCompany.getInitialProps = ({ store, isServer, pathname, query }) => {
+  store.dispatch({ type: "FOO", payload: "foo" }); // The component can read from the store's state when rendered
+  return { namespacesRequired: [] }; // You can pass some custom props to the component from here
+};
+
+export default connect((state) => state)(
+  withTranslation("homepage")(InvestCompany)
+);
