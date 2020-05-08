@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
 import useSWR from "swr";
+import { withTranslation } from "../../initializers/i18n";
 
-export default function InvestCompany() {
+function InvestCompany() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error } = useSWR("/api/company", fetcher);
 
@@ -19,3 +20,9 @@ export default function InvestCompany() {
     </Layout>
   );
 }
+
+InvestCompany.getInitialProps = async () => ({
+  namespacesRequired: [],
+});
+
+export default withTranslation("homepage")(InvestCompany);

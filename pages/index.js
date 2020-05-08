@@ -1,16 +1,17 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import Link from "next/link";
 
-export default function Home() {
+import { withTranslation, Link } from "../initializers/i18n";
+
+function Home() {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>The future is near, the future is Nxchange</p>
+        <p>hoi</p>
         <p>
           <Link href="/invest/company">
             <a>Visits invest company</a>
@@ -20,3 +21,9 @@ export default function Home() {
     </Layout>
   );
 }
+
+Home.getInitialProps = async () => ({
+  namespacesRequired: ["homepage"],
+});
+
+export default withTranslation("homepage")(Home);
