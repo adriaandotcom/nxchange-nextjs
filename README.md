@@ -2,9 +2,9 @@
 
 Just to test Next.js and the easy of use.
 
-## Deployed version
+## Deployment
 
-You can checkout the deployed version here: [nxchange-nextjs.now.sh](https://nxchange-nextjs.now.sh/).
+I tried to deploy this to now.sh. It seems [next-i18next](https://github.com/isaachinman/next-i18next) is not ready for it yet ([#577](https://github.com/isaachinman/next-i18next/issues/577), [#274](https://github.com/isaachinman/next-i18next/issues/274)). Not sure how deployment goes with our current server, it might be easier or more complicated. I don't know.
 
 ## Screenshots
 
@@ -17,3 +17,7 @@ Don't use Firefox, it does not work well with reloading. No idea why. Hopefully 
 ## Translations
 
 Translations work within this app. It uses [isaachinman/next-i18next](https://github.com/isaachinman/next-i18next). It has two down sides. It does not do translations in (dynamic) routes and it does not translate error pages. This last issue is because Next.js does not support that.
+
+## Next.js telemetry
+
+Just run `npx next telemetry disable` if you want to disable [telemetry](https://nextjs.org/telemetry).
