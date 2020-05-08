@@ -15,7 +15,7 @@ function Home({ t }) {
         <p>{t("description")}</p>
         <p>
           <Link href="/invest/company">
-            <a>{t('visit-invest-company')</a>
+            <a>{t("visit-invest-company")}</a>
           </Link>
         </p>
         <p>
